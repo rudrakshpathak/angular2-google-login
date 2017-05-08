@@ -22,17 +22,27 @@ export class AuthService {
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
       });
-      let element = document.getElementById('google-login-button');
+      //Login button reference
+      let element:any = document.getElementById('google-login-button');
       auth2.attachClickHandler(element, {},
         function (googleUser) {
+          //Getting profile object
           let profile = googleUser.getBasicProfile();
-          result = {
-            token: googleUser.getAuthResponse().id_token,
-            name: profile.getName(),
-            image: profile.getImageUrl(),
-            email: profile.getEmail(),
-          };
-          callback(result);
+          
+          //Setting data to localstorage.
+          localStorage.setItem('token', googleUser.getAuthResponse().id_token);
+          localStorage.setItem('image', profile.getImageUrl());
+          localStorage.setItem('name', profile.getName());
+          localStorage.setItem('email', profile.getEmail());
+
+          //Alternatively you can create an object and return it like that -
+          // result = {
+          //   token: googleUser.getAuthResponse().id_token,
+          //   name: profile.getName(),
+          //   image: profile.getImageUrl(),
+          //   email: profile.getEmail(),
+          // };
+          callback(true);
         }, function (error) {
           alert(JSON.stringify(error, undefined, 2));
         });
@@ -44,6 +54,7 @@ export class AuthService {
    * @param callback Callback to function
    */
   userLogout(callback) {
+    //You will be redirected to this URL after logging out from Google.
     let homeUrl = "http://localhost:4200";
     let logoutUrl = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=" + homeUrl;
     document.location.href = logoutUrl;

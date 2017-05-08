@@ -3,8 +3,10 @@
 
   <div *ngIf="token">
     <img src="{{imageURL}}">
-    <p>{{name}}</p>
-    <p>{{email}}</p>
+    <br>
+    <b>TOKEN: </b><p>{{token}}</p>
+    <b>NAME: </b><p>{{name}}</p>
+    <b>EMAIL: </b><p>{{email}}</p>
 
     <button class="btn btn-danger" (click)="logout()">Logout</button>
   </div>

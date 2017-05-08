@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from './google-authentication/auth.service';
 
 @Component({
@@ -12,31 +12,32 @@ export class LoginComponent implements OnInit{
   name  : string; 
   token  : string; 
 
-  constructor(private auth :AuthService){}
+  constructor(private auth :AuthService, private zone:NgZone){}
 
+  /**
+   * Ininitalizing Google Authentication API and getting data from localstorage if logged in
+   */
   ngOnInit(){
-     this.setData();
+     this.getData();
+     setTimeout(()=>{this.googleAuthenticate()},50);
   }
 
   /**
    * Calling Google Authentication service
    */
   googleAuthenticate(){
-    this.auth.authenticateUser(function (data){
-      if(data){
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('image', data.image);
-        localStorage.setItem('name', data.name);
-        localStorage.setItem('email', data.email);
-      }
+    this.auth.authenticateUser((result)=>{
+      //Using Angular2 Zone dependency to manage the scope of variables
+      this.zone.run(() => {
+          this.getData();
+      });
     });
-    this.setData();
   }
 
   /**
-   * Setting data in browser's local storage
+   * Getting data from browser's local storage
    */
-  setData(){
+  getData(){
     this.token = localStorage.getItem('token');
     this.imageURL = localStorage.getItem('image');
     this.name = localStorage.getItem('name');
