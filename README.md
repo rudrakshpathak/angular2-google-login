@@ -3,7 +3,7 @@
 [![version](https://img.shields.io/badge/version-v1.0-orange.svg)]()
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
 [![npm](https://img.shields.io/npm/l/express.svg)]()
-[![PyPI](https://img.shields.io/badge/status-unstable-red.svg)]()
+[![PyPI](https://img.shields.io/badge/status-under%20development-red.svg)]()
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
