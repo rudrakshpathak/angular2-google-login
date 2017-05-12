@@ -42,6 +42,25 @@ this._googleAuth.authenticateUser(()=>{
     });
 ```
 
+### Using fetched Google account details
+In the package, `localstorage` is used to hold the data -
+```javascript
+localStorage.setItem('token', userDetails.getAuthResponse().id_token);
+localStorage.setItem('image', profile.getImageUrl());
+localStorage.setItem('name', profile.getName());
+localStorage.setItem('email', profile.getEmail());
+```
+Alternatively, you can tweak the code and create an object that you can return to do post operation after successful login -
+```javascript
+result = {
+   token: userDetails.getAuthResponse().id_token,
+   name: profile.getName(),
+   image: profile.getImageUrl(),
+   email: profile.getEmail(),
+ };
+ return result;
+```
+
 ### Logout user
 ```javascript
 this._googleAuth.userLogout(()=>{
