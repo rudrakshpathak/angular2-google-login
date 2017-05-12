@@ -14,7 +14,7 @@ Run `npm install angular2-google-login`.
 ### Import Package 
 Import this package where you want to use Google authentication service. 
 ```javascript
-import { AuthService, AppGlobals } from '../../node_modules/angular2-google-login';
+import { AuthService, AppGlobals } from 'angular2-google-login';
 ```
 
 ### Providers
