@@ -9,7 +9,7 @@ You can visit npm for more info on [angular2-google-login package](https://www.n
 [![PyPI](https://img.shields.io/badge/status-stable-brightgreen.svg)]()
 
 ### To use the package in your app
-Run `npm install angular2-google-login`.
+Run `npm install angular2-google-login`
 
 ### Import Package 
 Import this package where you want to use Google authentication service. 
