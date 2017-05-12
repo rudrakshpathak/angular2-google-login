@@ -3,7 +3,7 @@ This is a sample app showing how we can login using Google authentication in Ang
 
 You can visit npm for more info on [angular2-google-login package](https://www.npmjs.com/package/angular2-google-login)
 
-[![version](https://img.shields.io/badge/version-v1.0.7-orange.svg)]()
+[![version](https://img.shields.io/badge/version-v1.0.9-orange.svg)]()
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
 [![npm](https://img.shields.io/npm/l/express.svg)]()
 [![PyPI](https://img.shields.io/badge/status-stable-brightgreen.svg)]()
