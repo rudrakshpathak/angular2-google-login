@@ -8,8 +8,7 @@
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
-    "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "pree2e": "webdriver-manager update --standalone false --gecko false"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +23,8 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "angular2-google-login":"^1.0.9"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
